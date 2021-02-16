@@ -3,21 +3,53 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "index.html": "319dc78146349ba68f954c661ed16ab3",
-"/": "319dc78146349ba68f954c661ed16ab3",
-"main.dart.js": "3ade1f48952651d4f7f62056a88cf8d1",
+  "version.json": "3e1a78bed58ec16f24658aa5c77f0e9d",
+"index.html": "96177bd99e0352bf49fd1522f37062f7",
+"/": "96177bd99e0352bf49fd1522f37062f7",
+"main.dart.js": "78faa3a55228683afafa3766006610a4",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "manifest.json": "f4e1c506ab1a02bc2508ab018a8883a9",
-"assets/AssetManifest.json": "d94050271108cd950e8a0f4525ca0390",
-"assets/NOTICES": "b8942e61af5f7827fddef577d42c37d1",
-"assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
+"assets/AssetManifest.json": "26272fa3d227d3ad23d8ee8df1bdec20",
+"assets/NOTICES": "0b3f324ca57ecb063afd0e34017dd18a",
+"assets/FontManifest.json": "74f79d9a18247bd27312413d5d3511cd",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "b14fcf3ee94e3ace300b192e9e7c8c5d",
+"assets/packages/flutter_dropzone_web/assets/flutter_dropzone.js": "5ee1f285611168cd6df377fd21151aae",
 "assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
+"assets/assets/images/toyota-logo.png": "bab4178d5260f16dfe35c8d2459fa73a",
+"assets/assets/images/package_select.png": "25c5fed49244c318a7fd744a22b7fc9b",
+"assets/assets/images/notification_top.png": "a4f482a3bf5365b501e658b55c06c48b",
+"assets/assets/images/user_management.png": "fc1c712b604edd6372031c158e8c67bc",
+"assets/assets/images/license_unselect.png": "d7bce4ec01df340f8b98d52e4dfa8f58",
+"assets/assets/images/dateTime.png": "5e5c34053e072bbb35cffd6fe0959806",
+"assets/assets/images/user-placeholder.png": "ddef75ca1668564d580e5b2a944f89df",
+"assets/assets/images/unselected-radiobutton.png": "39e0b7abd206ff4e7e471aeae75f14e7",
+"assets/assets/images/reports_unselect.png": "6627c3c67998ffa70d177fbcf34f19bc",
+"assets/assets/images/logs_unselect.png": "2301bd16c205241971fa6924ab0ccb19",
+"assets/assets/images/app_management.png": "120826b51d8ae534ed49a77cc430c039",
+"assets/assets/images/upload_app_package.png": "27f185225bdd4c8d7c8d2721435bc2b0",
+"assets/assets/images/toyota_collapse.png": "451f2364c0af7c2ba2f86f598362416b",
+"assets/assets/images/upload_package_side_menu.png": "a28355c5ffae15f43ecb34355b636eab",
+"assets/assets/images/selected-checkbox.png": "5b464e72ca209414f0b5a26796ec6eb3",
+"assets/assets/images/notification_management.png": "335acefa4258f5237814dd0df050ac82",
+"assets/assets/images/unselected-checkbox.png": "c57764712be347fb31550490768dd7c4",
+"assets/assets/images/selected-radiobutton.png": "7365eb504d2323927f422e1143fc0ba3",
 "assets/assets/folder.png": "41fdd6e6bca1754d1cb12dd686c871a9",
 "assets/assets/edit.png": "204b590ca24a1a4aa98da22475fa467d",
-"assets/assets/toyota_access_logo.png": "9e4354f0ab717ea8e6c49635647eb1bc"
+"assets/assets/toyota_access_logo.png": "9e4354f0ab717ea8e6c49635647eb1bc",
+"assets/assets/fonts/ToyotaType-SemiboldIt.ttf": "d085097cf6a19fec8ea0f3dad8331509",
+"assets/assets/fonts/ToyotaType-Book.ttf": "281b8904873913a00a10b41584372556",
+"assets/assets/fonts/ToyotaType-Bold.ttf": "755ac808845779e6aa71ac9f211e954a",
+"assets/assets/fonts/ToyotaType-Black.ttf": "7f19429deb75880a47921d57882f2491",
+"assets/assets/fonts/ToyotaType-RegularIt.ttf": "9fc0af0a795de3ff8ba7882dd5f91afc",
+"assets/assets/fonts/ToyotaType-LightIt.ttf": "1b31986af9cb3af2be6845b30e5b3958",
+"assets/assets/fonts/ToyotaType-Semibold.ttf": "e3f0fa1113dc23d972b38186c82fd5de",
+"assets/assets/fonts/ToyotaType-Regular.ttf": "7e825c39f15050069cf660719d9409b7",
+"assets/assets/fonts/ToyotaType-BlackIt.ttf": "3be006b41e7cb030d35e8ca116ffa3cc",
+"assets/assets/fonts/ToyotaType-BookIt.ttf": "2e5a3e2aeeb3d17f7f3c0dd69646cac9",
+"assets/assets/fonts/ToyotaType-BoldIt.ttf": "7fa90be7851ce19a9509451736f5404f",
+"assets/assets/fonts/ToyotaType-Light.ttf": "93cde6c18d42b020d71098387742aba8"
 };
 
 // The application shell files that are downloaded before a service worker can
@@ -31,6 +63,7 @@ const CORE = [
 "assets/FontManifest.json"];
 // During install, the TEMP cache is populated with the application shell files.
 self.addEventListener("install", (event) => {
+  self.skipWaiting();
   return event.waitUntil(
     caches.open(TEMP).then((cache) => {
       return cache.addAll(
@@ -99,6 +132,9 @@ self.addEventListener("activate", function(event) {
 // The fetch handler redirects requests for RESOURCE files to the service
 // worker cache.
 self.addEventListener("fetch", (event) => {
+  if (event.request.method !== 'GET') {
+    return;
+  }
   var origin = self.location.origin;
   var key = event.request.url.substring(origin.length + 1);
   // Redirect URLs to the index.html
@@ -108,9 +144,10 @@ self.addEventListener("fetch", (event) => {
   if (event.request.url == origin || event.request.url.startsWith(origin + '/#') || key == '') {
     key = '/';
   }
-  // If the URL is not the RESOURCE list, skip the cache.
+  // If the URL is not the RESOURCE list then return to signal that the
+  // browser should take over.
   if (!RESOURCES[key]) {
-    return event.respondWith(fetch(event.request));
+    return;
   }
   // If the URL is the index.html, perform an online-first request.
   if (key == '/') {
@@ -134,10 +171,12 @@ self.addEventListener('message', (event) => {
   // SkipWaiting can be used to immediately activate a waiting service worker.
   // This will also require a page refresh triggered by the main worker.
   if (event.data === 'skipWaiting') {
-    return self.skipWaiting();
+    self.skipWaiting();
+    return;
   }
-  if (event.message === 'downloadOffline') {
+  if (event.data === 'downloadOffline') {
     downloadOffline();
+    return;
   }
 });
 

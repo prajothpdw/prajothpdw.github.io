@@ -4,19 +4,27 @@ const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
   "version.json": "3e1a78bed58ec16f24658aa5c77f0e9d",
-"index.html": "773c8fdf4caa002132a1988d9d737569",
-"/": "773c8fdf4caa002132a1988d9d737569",
-"main.dart.js": "c6e5a92e5c71f04301a779cbf67ed321",
+"index.html": "4f22536da258f839f2233c69b8e178c3",
+"/": "4f22536da258f839f2233c69b8e178c3",
+"main.dart.js": "f4f2037b370e6fdf26d557ff220a286d",
 "favicon.png": "ba213fbbbd874ed65098deb1ce97f2ee",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "manifest.json": "f4e1c506ab1a02bc2508ab018a8883a9",
-"assets/AssetManifest.json": "26272fa3d227d3ad23d8ee8df1bdec20",
-"assets/NOTICES": "92e268079c04d33ab9fd1856d543ff86",
+"assets/AssetManifest.json": "55c5f3b8de8ca8d91622db626add1b18",
+"assets/NOTICES": "06d3bb834d21d442f2c66266937d93bc",
 "assets/FontManifest.json": "74f79d9a18247bd27312413d5d3511cd",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "b14fcf3ee94e3ace300b192e9e7c8c5d",
+"assets/packages/fluttertoast/assets/toastify.js": "e7006a0a033d834ef9414d48db3be6fc",
+"assets/packages/fluttertoast/assets/toastify.css": "a85675050054f179444bc5ad70ffc635",
 "assets/packages/flutter_dropzone_web/assets/flutter_dropzone.js": "5ee1f285611168cd6df377fd21151aae",
+"assets/lib/lang/en.json": "10f13bf8c5d49af27960391382b120a5",
 "assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
+"assets/assets/toyotabg.png": "9592f25ccb0ac9c1c2cbb91cdb3e17a0",
+"assets/assets/config/prod_config.json": "12f12e3ffa669f428ef0719c1641805b",
+"assets/assets/config/dev_config.json": "1d3a208838f4f5a066ded222dc33d218",
+"assets/assets/config/local_config.json": "390d8c56c2061324c251b113e5b17501",
+"assets/assets/config/stg_config.json": "08c704aa327a7679d6d9a6e5c41a95cc",
 "assets/assets/images/toyota-logo.png": "bab4178d5260f16dfe35c8d2459fa73a",
 "assets/assets/images/package_select.png": "25c5fed49244c318a7fd744a22b7fc9b",
 "assets/assets/images/notification_top.png": "a4f482a3bf5365b501e658b55c06c48b",
@@ -24,9 +32,12 @@ const RESOURCES = {
 "assets/assets/images/license_unselect.png": "d7bce4ec01df340f8b98d52e4dfa8f58",
 "assets/assets/images/dateTime.png": "5e5c34053e072bbb35cffd6fe0959806",
 "assets/assets/images/user-placeholder.png": "ddef75ca1668564d580e5b2a944f89df",
+"assets/assets/images/down-arrow.png": "8b6c9add6023f9e1b4bd45ea1339515c",
 "assets/assets/images/unselected-radiobutton.png": "39e0b7abd206ff4e7e471aeae75f14e7",
 "assets/assets/images/reports_unselect.png": "6627c3c67998ffa70d177fbcf34f19bc",
 "assets/assets/images/logs_unselect.png": "2301bd16c205241971fa6924ab0ccb19",
+"assets/assets/images/rightarrow.png": "a43dbd630d7b33969e97fe9c93e9fc1b",
+"assets/assets/images/leftarrow.png": "d1d44b6abd5532a26037898c52283b2f",
 "assets/assets/images/app_management.png": "120826b51d8ae534ed49a77cc430c039",
 "assets/assets/images/upload_app_package.png": "27f185225bdd4c8d7c8d2721435bc2b0",
 "assets/assets/images/toyota_collapse.png": "451f2364c0af7c2ba2f86f598362416b",
@@ -49,7 +60,8 @@ const RESOURCES = {
 "assets/assets/fonts/ToyotaType-BlackIt.ttf": "3be006b41e7cb030d35e8ca116ffa3cc",
 "assets/assets/fonts/ToyotaType-BookIt.ttf": "2e5a3e2aeeb3d17f7f3c0dd69646cac9",
 "assets/assets/fonts/ToyotaType-BoldIt.ttf": "7fa90be7851ce19a9509451736f5404f",
-"assets/assets/fonts/ToyotaType-Light.ttf": "93cde6c18d42b020d71098387742aba8"
+"assets/assets/fonts/ToyotaType-Light.ttf": "93cde6c18d42b020d71098387742aba8",
+"msal.js": "c4de5cc6c2780846186078e69f6d79a6"
 };
 
 // The application shell files that are downloaded before a service worker can
@@ -193,7 +205,7 @@ async function downloadOffline() {
     }
     currentContent[key] = true;
   }
-  for (var resourceKey in Object.keys(RESOURCES)) {
+  for (var resourceKey of Object.keys(RESOURCES)) {
     if (!currentContent[resourceKey]) {
       resources.push(resourceKey);
     }

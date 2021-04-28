@@ -1,0 +1,4 @@
+{
+    "apiBaseURL": "https://hu-app-mgmt-api.stg.telematicsct.com/",
+    "environmentID": "This is DEV environment"
+}

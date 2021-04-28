@@ -25531,7 +25531,7 @@ p=$
 o=q
 n=C.a_
 s=9
-return P.O($.ng().ql("assets/config/dev_config.json"),$async$pG)
+return P.O($.ng().ql("config/dev_config.json"),$async$pG)
 case 9:p.tS=o.a(n.cE(0,c))
 s=3
 break

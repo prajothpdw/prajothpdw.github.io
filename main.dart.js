@@ -86731,7 +86731,7 @@ else if(C.c.cj(s,"https://gtp-app.stg.telematicsct")){P.B("stg environment")
 r.z=!0}else if(C.c.cj(s,"https://gtp-app.dev.telematicsct"))r.z=!1
 else if(C.c.cj(s,"https://gtp-app.telematicsct"))r.z=!0
 r.aF()},
-D:function(a3,a4){var s,r,q,p,o,n,m,l,k,j,i,h=this,g=null,f="assets/toyota_access_logo.png",e="LoginButtonKey",d="ToyotaType",c="V04.06.8000",b=t.w,a=a4.K(b).f.a.a,a0=a4.K(b).f.a.b,a1=D.bT(g),a2=D.bT(g)
+D:function(a3,a4){var s,r,q,p,o,n,m,l,k,j,i,h=this,g=null,f="assets/toyota_access_logo.png",e="LoginButtonKey",d="ToyotaType",c="V04.06.80001",b=t.w,a=a4.K(b).f.a.a,a0=a4.K(b).f.a.b,a1=D.bT(g),a2=D.bT(g)
 a1.sbs(0,"gac")
 a2.sbs(0,"gac")
 P.B("Context set-------------")
